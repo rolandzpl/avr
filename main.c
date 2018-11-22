@@ -17,7 +17,7 @@ ISR(TIMER1_COMPA_vect)
 {
 	count++;
 	
-    if (count % 2)
+	if (count % 2)
 	{
 		OCR1A = freq_top - duty;
 		PORTB &= ~(1 << PB3);
@@ -52,8 +52,8 @@ ISR(TIMER1_COMPA_vect)
   
 int main(void)
 {
-    DDRB |= (1 << PB3) | (1 << PB2);
-    TCCR1A |= (0 << COM1A1) | (0 << COM1A0) | // Normal port operation, OC1A/OC1B disconnected
+	DDRB |= (1 << PB3) | (1 << PB2);
+	TCCR1A |= (0 << COM1A1) | (0 << COM1A0) | // Normal port operation, OC1A/OC1B disconnected
 	          (0 << WGM11) | (0 << WGM10);    // CTC/OCR1A
 	TCCR1B |= (0 << WGM13) | (1 << WGM12);    // CTC/OCR1A
 	OCR1A = duty;
