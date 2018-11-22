@@ -21,9 +21,9 @@ ISR(TIMER1_COMPA_vect)
 	{
 		OCR1A = freq_top - duty;
 		PORTB &= ~(1 << PB3);
-    }
+	}
 	else
-    {    
+	{    
 		OCR1A = duty;
 		PORTB |= (1 << PB3);
 		
